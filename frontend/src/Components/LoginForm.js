@@ -5,13 +5,15 @@ class LoginForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
+      first: "",
+      last: "",
+      email: "",
       password: "",
     };
   }
 
   handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
+    this.setState({ [ event.target.name ]: event.target.value });
   };
 
   handleSubmit = (event) => {
@@ -24,11 +26,33 @@ class LoginForm extends Component {
         <form onSubmit={this.handleSubmit}>
           <div>
             <label>
-              Username:
+              First Name:
               <input
                 type="text"
-                name="username"
-                value={this.state.username}
+                name="first"
+                value={this.state.first}
+                onChange={this.handleChange}
+              />
+            </label>
+          </div>
+          <div>
+            <label>
+              Last Name:
+              <input
+                type="text"
+                name="last"
+                value={this.state.last}
+                onChange={this.handleChange}
+              />
+            </label>
+          </div>
+          <div>
+            <label>
+              Email:
+              <input
+                type="text"
+                name="email"
+                value={this.state.email}
                 onChange={this.handleChange}
               />
             </label>
